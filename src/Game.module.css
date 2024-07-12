@@ -1,0 +1,15 @@
+.game {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(60deg, #1b0144, #250000);
+	user-select: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}

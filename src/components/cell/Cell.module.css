@@ -1,0 +1,110 @@
+.cell {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	border: 2px solid #ffeaff;
+	border-radius: 15px;
+	box-shadow:
+		0 0 2px 1px #f3e921,
+		inset 0 0 2px 1px #f3e921;
+	font-size: 27px;
+	color: #fff;
+	text-shadow:
+		0 0 5px #21f33d,
+		0 0 8px #21f33d;
+	transition: 0.2s;
+}
+
+.cell.circle::after,
+.cell.draw::after {
+	content: '';
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	transition: 0.2s;
+}
+
+.cell.circle.active::after,
+.cell.draw.active::after {
+	border: 4px solid #ffffff;
+	box-shadow:
+		0 0 2px 1px #d73118,
+		inset 0 0 2px 1px #d73118,
+		0 0 2px 1px #ff2200,
+		inset 0 0 2px 1px #ff2200;
+	width: 65%;
+	height: 65%;
+}
+
+.cell.cross::after,
+.cell.cross::before {
+	content: '';
+	position: absolute;
+	width: 0px;
+	border-top: 3px solid #e7fef1;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+.cell.cross::after {
+	transform: rotate(225deg);
+}
+.cell.cross::before {
+	transform: rotate(-45deg);
+}
+
+.cell.cross.active::after,
+.cell.cross.active::before {
+	box-shadow:
+		0 0 2px 1px rgba(93, 219, 252),
+		inset 0 0 2px 1px #5ddbfc,
+		0 0 1px 1px #00ccff,
+		inset 0 0 1px 1px #00ccff;
+	width: 50px;
+}
+
+.margin {
+	margin: 10px;
+}
+
+.cell.draw::after {
+	/* border: 4px solid #ffffff; */
+	animation: cirkle-draw 2.5s infinite;
+}
+
+@keyframes cirkle-draw {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+.cell.draw::before {
+	content: '';
+	position: absolute;
+	width: 50px;
+	border-top: 3px solid #e7fef1;
+	border-radius: 5px;
+	box-shadow:
+		0 0 2px 1px rgba(93, 219, 252),
+		inset 0 0 2px 1px #5ddbfc,
+		0 0 1px 1px #00ccff,
+		inset 0 0 1px 1px #00ccff;
+	animation: cross-draw 2s linear infinite;
+	z-index: 1;
+}
+@keyframes cross-draw  {
+	0% {
+		transform: scale(.8) rotate(0deg);
+	}
+	100% {
+		transform: scale(.8) rotate(180deg);
+	}
+}

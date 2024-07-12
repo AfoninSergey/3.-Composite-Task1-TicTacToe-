@@ -1,0 +1,15 @@
+.text {
+	display: flex;
+	align-items: center;
+	height: 50px;
+	font-size: 27px;
+	color: #fff;
+	text-shadow:
+		0 0 5px #219cf3,
+		0 0 8px #219cf3;
+	justify-content: center;
+}
+
+.small {
+	font-size: 22px;
+}

@@ -1,0 +1,104 @@
+.field {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 90px);
+	grid-template-rows: repeat(3, 90px);
+	overflow: hidden;
+	border: 4px solid #ffeaff;
+	border-radius: 15px;
+	box-shadow:
+		0 0 5px 4px #6901c5,
+		inset 0 0 2px 3px #6901c5;
+}
+
+.field.ended {
+	animation: ended 1.5s;
+}
+@keyframes ended {
+
+	0% {
+		transform: scale(1);
+	}
+	15% {
+		transform: scale(1.1);
+	}
+	50% {
+		transform: scale(0.8);
+	}
+	80% {
+		transform: scale(1.05);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+/*0% {
+		transform: scale(1);
+	}
+
+	15% {
+		transform: scale(1.15);
+	}
+	75% {
+		transform: scale(0.7);
+	}
+
+	100% {
+		transform: scale(1);
+	}*/
+.cell {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 2px 1px #6901c5;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+
+.cell.circle::after {
+	content: '';
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	transition: 0.2s;
+}
+
+.cell.circle.active::after {
+	border: 6px solid #ffffff;
+	box-shadow:
+		0 0 6px 4px #d73118,
+		inset 0 0 5px 4px #d73118,
+		0 0 2px 2px #ff2200,
+		inset 0 0 2px 2px #ff2200;
+	width: 75%;
+	height: 75%;
+}
+
+.cell.cross::after,
+.cell.cross::before {
+	content: '';
+	position: absolute;
+	width: 0px;
+	border-top: 6px solid #e7fef1;
+	border-radius: 5px;
+	transition: 0.2s;
+}
+.cell.cross::after {
+	transform: rotate(45deg);
+}
+.cell.cross::before {
+	transform: rotate(-45deg);
+}
+
+.cell.cross.active::after,
+.cell.cross.active::before {
+	box-shadow:
+		0 0 5px 4px rgba(93, 219, 252),
+		inset 0 0 5px 4px #5ddbfc,
+		0 0 2px 2px #00ccff,
+		inset 0 0 2px 2px #00ccff;
+	width: 100px;
+}
